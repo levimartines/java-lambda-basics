@@ -1,4 +1,4 @@
-package io.levimartines;
+package io.levimartines.greeter;
 
 @FunctionalInterface
 public interface Greeting {

@@ -1,4 +1,4 @@
-package io.levimartines;
+package io.levimartines.exercises;
 
 public class Person {
 

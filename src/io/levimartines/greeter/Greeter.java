@@ -1,4 +1,4 @@
-package io.levimartines;
+package io.levimartines.greeter;
 
 public class Greeter {
 
