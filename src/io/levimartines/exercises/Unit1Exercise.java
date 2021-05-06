@@ -4,6 +4,9 @@ import io.levimartines.Person;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.locks.Condition;
+import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 public class Unit1Exercise {
 
@@ -23,25 +26,23 @@ public class Unit1Exercise {
 
         // Step 2 : Create a method that prints all the elements in the list
         System.out.println("Printing all persons");
-        printConditionally(personList, p -> true);
+        performConditionally(personList, p -> true, System.out::println);
         System.out.println();
 
         // Step 3 : Create a method that prints all people that have last name beginning with C
         System.out.println("Printing all persons that last name starts with C");
-        printConditionally(personList, p -> p.getLastName().startsWith("C"));
+        performConditionally(personList, p -> p.getLastName().startsWith("C"),
+            p -> System.out.println(p.getLastName()));
     }
 
-    private static void printConditionally(List<Person> personList, Condition condition) {
+    private static void performConditionally(List<Person> personList,
+        Predicate<Person> predicate, Consumer<Person> consumer) {
         personList.forEach(person -> {
-            if (condition.test(person)) {
-                System.out.println(person);
+            if (predicate.test(person)) {
+                consumer.accept(person);
             }
         });
     }
 
 }
 
-interface Condition {
-
-    boolean test(Person p);
-}
