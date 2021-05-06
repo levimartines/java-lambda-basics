@@ -1,7 +1,8 @@
 package io.levimartines;
 
+@FunctionalInterface
 public interface Greeting {
 
-    public void perform();
+    void perform();
 
 }
