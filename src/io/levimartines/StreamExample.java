@@ -17,7 +17,8 @@ public class StreamExample {
             new Person("Ronald", "Mc'Donald", 48)
         );
 
-        List<String> personLastNameStartsWithC = personList.stream()
+        // Permite o processamento paralelo dos dados ( se possível )
+        List<String> personLastNameStartsWithC = personList.parallelStream()
             .filter(p -> p.getLastName().startsWith("C"))
             .map(Person::getLastName)
             .map(string -> string = "Last name: " + string)
