@@ -1,5 +1,7 @@
 package io.levimartines;
 
+import java.util.function.Consumer;
+
 public class ClosuresExample {
 
     public static void main(String[] args) {
@@ -10,11 +12,7 @@ public class ClosuresExample {
 
     }
 
-    public static void doProcess(int i, Process process) {
-        process.process(i);
+    public static void doProcess(int i, Consumer<Integer> consumer) {
+        consumer.accept(i);
     }
-}
-
-interface Process {
-    void process(int i);
 }

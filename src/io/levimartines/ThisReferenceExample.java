@@ -1,5 +1,7 @@
 package io.levimartines;
 
+import java.util.function.Consumer;
+
 public class ThisReferenceExample {
 
     public static void main(String[] args) {
@@ -15,8 +17,8 @@ public class ThisReferenceExample {
 
     }
 
-    public void doProcess(int i, Process process) {
-        process.process(i);
+    public void doProcess(int i, Consumer<Integer> consumer) {
+        consumer.accept(i);
     }
 
     public void execute() {
